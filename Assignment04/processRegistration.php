@@ -42,20 +42,22 @@
 			.$state."\t"
 			.$zip."}\n";
 		
-		// Read from file
-		@ $registrations = file("Data/customers.txt");  // Read file into array
-		
-		$entry = substr($regSummary, strpos($regSummary, '::'));  // Read the summary starting at ":\t"
-		
-		foreach ($registrations as $reg) {  // Proccess each line in file
-			$line = substr($reg, strpos($reg, '::'));  // Read the line starting at ":\t"
+		// Check for duplicate entries
+		if (file_exists("Data/customers.txt") == true) {
+			@ $registrations = file("Data/customers.txt");  // Read file into array
 			
-			if ($entry == $line) {  // Compare entry to other registrations
-				echo "<p style='color:red;font-weight: bold;'>You are already registered</p>";
-				exit;
+			$entry = substr($regSummary, strpos($regSummary, '::'));  // Read the summary starting at ":\t"
+			
+			foreach ($registrations as $reg) {  // Proccess each line in file
+				$line = substr($reg, strpos($reg, '::'));  // Read the line starting at ":\t"
+				
+				if ($entry == $line) {  // Compare entry to other registrations
+					echo "<p style='color:red;font-weight: bold;'>You are already registered</p>";
+					exit;
+				}
 			}
+			unset($reg);  // Clear reffrence of $reg to $registrations
 		}
-		unset($reg);  // Clear reffrence of $reg to $registrations
 		
 		// Write into file
 		@ $file = fopen("Data/customers.txt", 'ab');  // Open log file for appending

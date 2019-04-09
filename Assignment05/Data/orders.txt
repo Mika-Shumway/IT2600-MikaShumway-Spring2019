@@ -1,0 +1,2 @@
+8:10 PM, 8th April 2019: 	[1 cupcakes,	2 donuts,	3 loafs of bread,	4 cookies]	{Price: $25.41}	(Address: 0000 E 00 st)
+8:11 PM, 8th April 2019: 	[1 cupcakes,	1 donuts,	1 loafs of bread,	1 cookies]	{Price: $9.90}	(Address: 0000 E 00 st)
